@@ -1,0 +1,1 @@
+import { ProjectHome } from "@/components/project-home";import { medSections } from "@/lib/sections";export default function Page(){return <ProjectHome name="MED3DRUK" subtitle="Виробництво, каталог, CRM, моделі, доставка та документи." base="med3druk" sections={medSections}/>}

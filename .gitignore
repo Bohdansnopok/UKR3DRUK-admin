@@ -1,0 +1,28 @@
+# dependencies and builds
+node_modules/
+.next/
+out/
+dist/
+coverage/
+
+# local environment and secrets
+.env*
+!.env.example
+*.pem
+*.key
+
+# deployment and local tooling
+.vercel/
+.turbo/
+.swc/
+.eslintcache
+
+# logs and generated caches
+*.log
+*.tsbuildinfo
+
+# operating systems and editors
+.DS_Store
+.idea/
+.vscode/
+*.swp

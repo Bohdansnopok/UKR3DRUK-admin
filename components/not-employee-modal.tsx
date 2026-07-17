@@ -1,0 +1,2 @@
+"use client";import { useEffect,useRef } from "react";import Link from "next/link";
+export function NotEmployeeModal(){const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{ref.current?.showModal()},[]);return <dialog ref={ref} className="access-modal"><div className="logo">!</div><h2>Ви не є співробітником</h2><p>Цей Google або email-акаунт не був доданий власником до команди UKR3DRUK. Попросіть власника надіслати запрошення на цю адресу.</p><Link className="btn" href="/login">Зрозуміло</Link></dialog>}

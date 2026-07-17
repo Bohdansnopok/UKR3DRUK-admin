@@ -1,0 +1,1 @@
+import { ProjectHome } from "@/components/project-home";import { calcSections } from "@/lib/sections";export default function Page(){return <ProjectHome name="Калькулятор" subtitle="Виробничі заявки, кошториси, користувачі, файли та аудит email-кодів." base="calculator" sections={calcSections}/>}

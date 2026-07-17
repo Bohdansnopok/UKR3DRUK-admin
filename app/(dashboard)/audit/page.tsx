@@ -1,0 +1,1 @@
+import { PageHeader,Table } from "@/components/shell";import { secureList } from "@/lib/data";export default async function Page(){const rows=await secureList("admin","audit_logs","audit.read");return <><PageHeader eyebrow="Безпека" title="Журнал дій" subtitle="Незмінний слід важливих переглядів, змін і завантажень."/><Table rows={rows}/></>}

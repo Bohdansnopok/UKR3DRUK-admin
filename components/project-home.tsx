@@ -1,0 +1,2 @@
+import Link from "next/link"; import { PageHeader } from "./shell"; import type { Section } from "@/lib/sections";
+export function ProjectHome({name,subtitle,base,sections}:{name:string;subtitle:string;base:string;sections:Record<string,Section>}){return <><PageHeader eyebrow="Проєкт" title={name} subtitle={subtitle}/><div className="grid">{Object.entries(sections).map(([key,s])=><Link className="card" href={`/${base}/${key}`} key={key}><div className="eyebrow">Відкрити →</div><h3>{s.title}</h3><p className="muted">{s.subtitle}</p></Link>)}</div></>}
