@@ -1,1 +1,1 @@
-import { Shell } from "@/components/shell"; export default function Layout({children}:{children:React.ReactNode}){return <Shell>{children}</Shell>}
+import { Shell } from "@/components/shell";import { getSessionProfile } from "@/lib/auth";import { redirect } from "next/navigation";export default async function Layout({children}:{children:React.ReactNode}){if(!await getSessionProfile())redirect("/login");return <Shell>{children}</Shell>}
