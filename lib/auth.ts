@@ -40,7 +40,7 @@ export const getSessionProfile = cache(async (): Promise<SessionProfile | null> 
       .maybeSingle();
     if (profileError || !profile || profile.status !== "active") return null;
 
-    const owner = ownerEmails().includes(user.email.toLowerCase());
+    const owner = profile.is_owner || ownerEmails().includes(user.email.toLowerCase());
     if (owner) return { id: user.id, email: user.email, name: profile.full_name ?? user.email, role: "owner", permissions: rolePermissions.owner, demo: false };
 
     const { data, error: permissionsError } = await admin
