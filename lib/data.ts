@@ -10,7 +10,8 @@ export async function secureList(project: "admin"|"med3druk"|"calculator", table
   if (isDemoMode()) return [];
   const client = serviceClient(project); if (!client) return [];
   const from = Math.max(0, page - 1) * 25;
-  let request = client.from(table).select(safeSelect[table] ?? "*").range(from, from + 24).order("created_at", { ascending: false });
+  const orderColumn = table === "workspace_settings" ? "updated_at" : "created_at";
+  let request = client.from(table).select(safeSelect[table] ?? "*").range(from, from + 24).order(orderColumn, { ascending: false });
   if (query && searchColumns[table]) request = request.ilike(searchColumns[table], `%${query.slice(0, 100)}%`);
   const { data, error } = await request; if (error) { console.error(`Supabase error for ${table}:`, error); throw new Error(`Не вдалося завантажити ${table}`); } return data as unknown as Row[];
 }
